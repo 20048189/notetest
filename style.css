@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+  }
+  
+  .quiz-container {
+    width: 300px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .btn {
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
