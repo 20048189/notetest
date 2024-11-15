@@ -1,103 +1,90 @@
-const questions = [
-    {
+// Sample question data
+let questions = [
+  {
+      question: "What is 2 + 2?",
+      options: ["3", "4", "5", "6"],
+      correct: "4"
+  },
+  {
       question: "What is the capital of France?",
-      answers: [
-        { text: "Paris", correct: true },
-        { text: "London", correct: false },
-        { text: "Berlin", correct: false },
-        { text: "Madrid", correct: false }
-      ]
-    },
-    {
-      question: "Which planet is known as the Red Planet?",
-      answers: [
-        { text: "Mars", correct: true },
-        { text: "Earth", correct: false },
-        { text: "Jupiter", correct: false },
-        { text: "Venus", correct: false }
-      ]
-    },
-    {
-      question: "What is the largest ocean on Earth?",
-      answers: [
-        { text: "Pacific Ocean", correct: true },
-        { text: "Atlantic Ocean", correct: false },
-        { text: "Indian Ocean", correct: false },
-        { text: "Arctic Ocean", correct: false }
-      ]
-    }
-  ];
-  
-  let currentQuestionIndex = 0;
-  let score = 0;
-  
-  const questionElement = document.getElementById('question');
-  const answerButtonsElement = document.getElementById('answer-buttons');
-  const nextButton = document.getElementById('next-btn');
-  const scoreContainer = document.getElementById('score-container');
-  const scoreElement = document.getElementById('score');
-  
-  function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    scoreContainer.classList.add('hidden');
-    nextButton.classList.remove('hidden');
-    showQuestion();
+      options: ["Berlin", "Paris", "Rome", "Madrid"],
+      correct: "Paris"
   }
-  
-  function showQuestion() {
-    resetState();
-    const currentQuestion = questions[currentQuestionIndex];
-    questionElement.innerText = currentQuestion.question;
-    currentQuestion.answers.forEach(answer => {
-      const button = document.createElement('button');
-      button.innerText = answer.text;
-      button.classList.add('btn');
-      if (answer.correct) {
-        button.dataset.correct = answer.correct;
-      }
-      button.addEventListener('click', selectAnswer);
-      answerButtonsElement.appendChild(button);
-    });
-  }
-  
-  function resetState() {
-    while (answerButtonsElement.firstChild) {
-      answerButtonsElement.removeChild(answerButtonsElement.firstChild);
-    }
-  }
-  
-  function selectAnswer(e) {
-    const selectedButton = e.target;
-    const isCorrect = selectedButton.dataset.correct;
-    if (isCorrect) {
-      score++;
-    }
-    if (currentQuestionIndex < questions.length - 1) {
-      currentQuestionIndex++;
-      showQuestion();
-    } else {
-      endQuiz();
-    }
-  }
-  
-  function endQuiz() {
-    questionElement.innerText = "Quiz Complete!";
-    answerButtonsElement.classList.add('hidden');
-    nextButton.classList.add('hidden');
-    scoreContainer.classList.remove('hidden');
-    scoreElement.innerText = `${score} / ${questions.length}`;
-  }
-  
-  function restartQuiz() {
-    scoreContainer.classList.add('hidden');
-    startQuiz();
-  }
-  
-  nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    showQuestion();
+];
+
+// DOM elements
+const quizContainer = document.getElementById("quiz");
+const nextBtn = document.getElementById("next-btn");
+const submitBtn = document.getElementById("submit-btn");
+const addForm = document.getElementById("add-question-form");
+const deleteBtn = document.getElementById("delete-question-btn");
+
+let currentQuestionIndex = 0;
+let userScore = 0;
+
+// Load question
+function loadQuestion() {
+  quizContainer.innerHTML = "";
+
+  const questionObj = questions[currentQuestionIndex];
+  const questionElem = document.createElement("h3");
+  questionElem.textContent = questionObj.question;
+  quizContainer.appendChild(questionElem);
+
+  questionObj.options.forEach((option, index) => {
+      const optionElem = document.createElement("div");
+      optionElem.innerHTML = `
+          <input type="radio" name="option" id="option${index}" value="${option}">
+          <label for="option${index}">${option}</label>
+      `;
+      quizContainer.appendChild(optionElem);
   });
-  
-  startQuiz();
-  
+}
+
+// Add new question
+addForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const newQuestion = {
+      question: document.getElementById("question").value,
+      options: [
+          document.getElementById("option1").value,
+          document.getElementById("option2").value,
+          document.getElementById("option3").value,
+          document.getElementById("option4").value
+      ],
+      correct: document.getElementById("correct").value
+  };
+  questions.push(newQuestion);
+  alert("Question added successfully!");
+  addForm.reset();
+});
+
+// Delete all questions
+deleteBtn.addEventListener("click", () => {
+  questions = [];
+  alert("All questions deleted!");
+});
+
+// Handle Next button
+nextBtn.addEventListener("click", () => {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+      if (selectedOption.value === questions[currentQuestionIndex].correct) {
+          userScore++;
+      }
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+          loadQuestion();
+      } else {
+          alert(`Quiz finished! Your score: ${userScore}/${questions.length}`);
+          currentQuestionIndex = 0;
+          userScore = 0;
+          loadQuestion();
+      }
+  } else {
+      alert("Please select an option.");
+  }
+});
+
+// Load initial question
+loadQuestion();

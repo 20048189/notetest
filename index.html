@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="quiz-container">
-    <div id="question-container">
-      <h2 id="question">Question Text</h2>
-      <div id="answer-buttons" class="btn-container"></div>
+    <div id="quiz-container">
+        <h1>Quiz App</h1>
+        <div id="quiz">
+            <!-- Questions will dynamically render here -->
+        </div>
+        <button id="next-btn">Next</button>
+        <button id="submit-btn">Submit</button>
     </div>
-    <button id="next-btn" class="btn">Next</button>
-    <div id="score-container" class="hidden">
-      <h3>Your Score: <span id="score"></span></h3>
-      <button onclick="restartQuiz()" class="btn">Restart Quiz</button>
+    <div id="admin-panel">
+        <h2>Admin Panel</h2>
+        <form id="add-question-form">
+            <input type="text" id="question" placeholder="Enter question" required>
+            <input type="text" id="option1" placeholder="Option 1" required>
+            <input type="text" id="option2" placeholder="Option 2" required>
+            <input type="text" id="option3" placeholder="Option 3" required>
+            <input type="text" id="option4" placeholder="Option 4" required>
+            <input type="text" id="correct" placeholder="Correct Answer" required>
+            <button type="submit">Add Question</button>
+        </form>
+        <button id="delete-question-btn">Delete All Questions</button>
     </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
