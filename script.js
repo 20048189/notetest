@@ -81,7 +81,18 @@ const questions = [
     }
   }
   
-
+  function endQuiz() {
+    questionElement.innerText = "Quiz Complete!";
+    answerButtonsElement.classList.add('hidden');
+    nextButton.classList.add('hidden');
+    scoreContainer.classList.remove('hidden');
+    scoreElement.innerText = `${score} / ${questions.length}`;
+  }
+  
+  function restartQuiz() {
+    scoreContainer.classList.add('hidden');
+    startQuiz();
+  }
   
   nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
