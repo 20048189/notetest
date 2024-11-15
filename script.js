@@ -73,7 +73,12 @@ const questions = [
     if (isCorrect) {
       score++;
     }
-    
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex++;
+      showQuestion();
+    } else {
+      endQuiz();
+    }
   }
   
   function endQuiz() {
