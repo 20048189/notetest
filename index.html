@@ -12,17 +12,15 @@
     <button id="start-quiz-btn">Start Quiz</button>
     <button id="show-questions-btn">Show All Questions</button>
   </div>
-        <h1>Quiz App</h1>
-        <div id="quiz">
-            <!-- Questions will dynamically render here -->
-        </div>
-        <button id="next-btn">Next</button>
-        <button id="submit-btn">Submit</button>
+  <div id="quiz-section" class="hidden">
+    <h2 id="question">Question Text</h2>
+    <div id="answer-buttons" class="btn-container"></div>
+    <button id="next-btn" class="hidden">Next</button>
+    <div id="score-container" class="hidden">
+      <h3>Your Score: <span id="score"></span></h3>
+      <button id="back-to-main-page-btn">Back to Main Page</button>
     </div>
-    <div id="admin-panel">
-        <h2>Admin Panel</h2>
-        <form id="add-question-form">
-            <input type="text" id="question" placeholder="Enter question" required>
+  </div>
             <input type="text" id="option1" placeholder="Option 1" required>
             <input type="text" id="option2" placeholder="Option 2" required>
             <input type="text" id="option3" placeholder="Option 3" required>
