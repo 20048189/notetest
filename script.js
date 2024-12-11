@@ -78,11 +78,17 @@ function addOrUpdateQuestion(event) {
       correct: i + 1 == correctAnswerSelect.value,
     })),
   };
+  if (editingIndex !== null) {
+    questions[editingIndex] = newQuestion; // Update the question
+    editingIndex = null;
+  } else {
+    questions.push(newQuestion); // Add new question
+  }
+  saveQuestions();
+  questionForm.reset();
+  goBackToMainPageFromShowQuestions();
+}
 
-  // Question
-  const questionElem = document.createElement("h3");
-  questionElem.textContent = `Q${currentQuestionIndex + 1}: ${questionObj.question}`;
-  quizContainer.appendChild(questionElem);
 
   // Options
   questionObj.options.forEach((option, index) => {
