@@ -88,7 +88,17 @@ function addOrUpdateQuestion(event) {
   questionForm.reset();
   goBackToMainPageFromShowQuestions();
 }
-
+// Edit an existing question
+function editQuestion(index) {
+  const question = questions[index];
+  questionText.value = question.question;
+  question.answers.forEach((answer, i) => {
+    answerInputs[i].value = answer.text;
+    if (answer.correct) correctAnswerSelect.value = i + 1;
+  });
+  editingIndex = index;
+  questionForm.scrollIntoView({ behavior: "smooth" });
+}
 
   // Options
   questionObj.options.forEach((option, index) => {
