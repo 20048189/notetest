@@ -1,3 +1,18 @@
+
+const questionElement = document.getElementById("question");
+const answerButtonsElement = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
+const scoreContainer = document.getElementById("score-container");
+const scoreElement = document.getElementById("score");
+const questionForm = document.getElementById("question-form");
+const questionText = document.getElementById("question-text");
+const answerInputs = [
+  document.getElementById("answer1"),
+  document.getElementById("answer2"),
+  document.getElementById("answer3"),
+  document.getElementById("answer4"),
+];
+
 // Sample question data
 let questions = [
   {
