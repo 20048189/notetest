@@ -54,18 +54,7 @@ function loadQuestions() {
   });
 }
 
-// DOM elements
-const quizContainer = document.getElementById("quiz");
-const nextBtn = document.getElementById("next-btn");
-const submitBtn = document.getElementById("submit-btn");
-const addForm = document.getElementById("add-question-form");
-const deleteBtn = document.getElementById("delete-question-btn");
-const adminPanel = document.getElementById("admin-panel");
 
-// New Buttons
-const viewQuestionsBtn = document.createElement("button");
-viewQuestionsBtn.textContent = "View All Questions";
-adminPanel.appendChild(viewQuestionsBtn);
 
 let currentQuestionIndex = 0;
 let userScore = 0;
