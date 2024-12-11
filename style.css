@@ -59,14 +59,12 @@ button:hover {
   gap: 10px;
 }
 
-
-h3 {
-  margin: 10px 0;
+.btn-container button {
+  width: 100%;
+  background-color: #6c757d;
+  color: white;
 }
 
-#admin-panel {
-  margin-top: 40px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.btn-container button:hover {
+  background-color: #5a6268;
 }
