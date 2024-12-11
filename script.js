@@ -124,19 +124,7 @@ function startQuiz() {
   showQuestion();
 }
 
-// Show all questions
-viewQuestionsBtn.addEventListener("click", () => {
-  quizContainer.innerHTML = "<h3>All Questions</h3>";
-  questions.forEach((q, index) => {
-      const questionElem = document.createElement("div");
-      questionElem.innerHTML = `
-          <strong>Q${index + 1}:</strong> ${q.question}<br>
-          <em>Options:</em> ${q.options.join(", ")}<br>
-          <em>Correct Answer:</em> ${q.correct}<br><br>
-      `;
-      quizContainer.appendChild(questionElem);
-  });
-});
+
 
 // Add a new question
 addForm.addEventListener("submit", (e) => {
