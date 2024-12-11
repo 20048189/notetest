@@ -124,7 +124,23 @@ function startQuiz() {
   showQuestion();
 }
 
+// Show the current question
+function showQuestion() {
+  resetState();
+  const currentQuestion = questions[currentQuestionIndex];
+  questionElement.innerText = currentQuestion.question;
 
+  currentQuestion.answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    button.classList.add("btn");
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnswer);
+    answerButtonsElement.appendChild(button);
+  });
+}
 
 // Add a new question
 addForm.addEventListener("submit", (e) => {
