@@ -179,14 +179,13 @@ function goBackToMainPage() {
   quizSection.style.display = "none";
   mainPage.style.display = "block";
 
-// Delete all questions
-deleteBtn.addEventListener("click", () => {
-  if (confirm("Are you sure you want to delete all questions?")) {
-      questions = [];
-      alert("All questions deleted!");
-      quizContainer.innerHTML = "";
-  }
-});
+
+  // Reset the quiz section for the next round
+  resetState();
+  questionElement.innerText = "";
+  scoreContainer.style.display = "none";
+  backToMainPageButton.style.display = "none";
+}
 
 // Handle next button
 nextBtn.addEventListener("click", () => {
