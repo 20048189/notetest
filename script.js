@@ -100,17 +100,7 @@ function editQuestion(index) {
   questionForm.scrollIntoView({ behavior: "smooth" });
 }
 
-  // Options
-  questionObj.options.forEach((option, index) => {
-      const optionElem = document.createElement("div");
-      optionElem.innerHTML = `
-          <input type="radio" name="option" id="option${index}" value="${option}">
-          <label for="option${index}">${option}</label>
-      `;
-      quizContainer.appendChild(optionElem);
-  });
-}
-
+  
 // Show all questions
 viewQuestionsBtn.addEventListener("click", () => {
   quizContainer.innerHTML = "<h3>All Questions</h3>";
