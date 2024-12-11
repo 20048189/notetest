@@ -99,6 +99,12 @@ function editQuestion(index) {
   editingIndex = index;
   questionForm.scrollIntoView({ behavior: "smooth" });
 }
+// Delete a question
+function deleteQuestion(index) {
+  questions.splice(index, 1);
+  saveQuestions();
+  loadQuestions();
+}
 
   
 // Show all questions
