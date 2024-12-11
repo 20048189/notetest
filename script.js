@@ -68,7 +68,16 @@ function goBackToMainPageFromShowQuestions() {
   backToMainPageFromShowQuestionsButton.style.display = "none"; // Hide the Back button
 }
 
-
+// Add or update a question
+function addOrUpdateQuestion(event) {
+  event.preventDefault();
+  const newQuestion = {
+    question: questionText.value,
+    answers: answerInputs.map((input, i) => ({
+      text: input.value,
+      correct: i + 1 == correctAnswerSelect.value,
+    })),
+  };
 
   // Question
   const questionElem = document.createElement("h3");
