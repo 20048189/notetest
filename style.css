@@ -133,3 +133,28 @@ button:hover {
 .delete-btn:hover {
   background-color: #c82333;
 }
+/* Ensure the question list is hidden by default */
+#question-list {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  #quiz-section,
+  #question-management {
+    padding: 15px;
+  }
+
+  h2, h3 {
+    font-size: 18px;
+  }
+}
