@@ -22,6 +22,19 @@ const backToMainPageButton = document.getElementById("back-to-main-page-btn");
 const backToMainPageFromShowQuestionsButton = document.getElementById(
   "back-to-main-page-from-show-questions-btn"
 );
+// Save questions to localStorage
+function saveQuestions() {
+  localStorage.setItem("questions", JSON.stringify(questions));
+}
+
+// Load questions and display them in a structured format
+function loadQuestions() {
+  questionList.innerHTML = ""; // Clear the list before adding new ones
+  if (questions.length === 0) {
+    questionList.innerHTML = "<p>No questions available. Add some first!</p>";
+    return;
+  }
+
 // Sample question data
 let questions = [
   {
