@@ -106,7 +106,24 @@ function deleteQuestion(index) {
   loadQuestions();
 }
 
-  
+  // Start the quiz
+function startQuiz() {
+  if (questions.length === 0) {
+    alert("No questions available. Please add questions first.");
+    return;
+  }
+
+  mainPage.style.display = "none";
+  quizSection.style.display = "block";
+
+  currentQuestionIndex = 0;
+  score = 0;
+  scoreContainer.style.display = "none";
+  nextButton.style.display = "inline-block";
+
+  showQuestion();
+}
+
 // Show all questions
 viewQuestionsBtn.addEventListener("click", () => {
   quizContainer.innerHTML = "<h3>All Questions</h3>";
