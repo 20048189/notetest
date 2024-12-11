@@ -164,6 +164,15 @@ function selectAnswer(e) {
   }
 }
 
+// End the quiz and display the score
+function endQuiz() {
+  questionElement.innerText = "Quiz Complete!";
+  answerButtonsElement.style.display = "none";
+  nextButton.style.display = "none";
+  scoreContainer.style.display = "block";
+  scoreElement.innerText = `${score} / ${questions.length}`;
+  backToMainPageButton.style.display = "inline-block"; // Show the Back to Main Page button
+}
 
 
 
