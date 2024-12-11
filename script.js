@@ -54,6 +54,13 @@ function loadQuestions() {
   });
 }
 
+// Show all questions
+function showAllQuestions() {
+  loadQuestions();
+  questionList.style.display = "block"; // Show the question list
+  showQuestionsButton.style.display = "none"; // Hide the Show All Questions button
+  backToMainPageFromShowQuestionsButton.style.display = "inline-block"; // Show the Back button
+}
 
 
 let currentQuestionIndex = 0;
