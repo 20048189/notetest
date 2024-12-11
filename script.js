@@ -1,3 +1,7 @@
+let questions = JSON.parse(localStorage.getItem("questions")) || [];
+let currentQuestionIndex = 0;
+let score = 0;
+let editingIndex = null;
 
 const questionElement = document.getElementById("question");
 const answerButtonsElement = document.getElementById("answer-buttons");
@@ -35,19 +39,6 @@ function loadQuestions() {
     return;
   }
 
-// Sample question data
-let questions = [
-  {
-      question: "What is 2 + 2?",
-      options: ["3", "4", "5", "6"],
-      correct: "4"
-  },
-  {
-      question: "What is the capital of France?",
-      options: ["Berlin", "Paris", "Rome", "Madrid"],
-      correct: "Paris"
-  }
-];
 
 // DOM elements
 const quizContainer = document.getElementById("quiz");
