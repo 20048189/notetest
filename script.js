@@ -38,7 +38,21 @@ function loadQuestions() {
     questionList.innerHTML = "<p>No questions available. Add some first!</p>";
     return;
   }
-
+  questions.forEach((question, index) => {
+    const questionItem = document.createElement("div");
+    questionItem.classList.add("question-item");
+    questionItem.innerHTML = `
+      <strong>${question.question}</strong><br>
+      <div>Answer 1: ${question.answers[0].text}</div>
+      <div>Answer 2: ${question.answers[1].text}</div>
+      <div>Answer 3: ${question.answers[2].text}</div>
+      <div>Answer 4: ${question.answers[3].text}</div>
+      <button class="edit-btn" onclick="editQuestion(${index})">Edit</button>
+      <button class="delete-btn" onclick="deleteQuestion(${index})">Delete</button>
+    `;
+    questionList.appendChild(questionItem);
+  });
+}
 
 // DOM elements
 const quizContainer = document.getElementById("quiz");
