@@ -68,3 +68,68 @@ button:hover {
 .btn-container button:hover {
   background-color: #5a6268;
 }
+/* Score Section */
+#score-container h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Question Management */
+#question-management {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#question-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#question-form input, 
+#question-form select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#question-list {
+  margin-top: 20px;
+}
+
+.question-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.question-item strong {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.edit-btn, .delete-btn {
+  margin: 5px 5px 0 0;
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
