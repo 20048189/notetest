@@ -141,6 +141,14 @@ function showQuestion() {
     answerButtonsElement.appendChild(button);
   });
 }
+// Reset the state (clear previous answers)
+function resetState() {
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+  }
+  answerButtonsElement.style.display = "flex"; // Reset visibility for the next question
+}
+
 
 // Add a new question
 addForm.addEventListener("submit", (e) => {
