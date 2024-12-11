@@ -149,24 +149,23 @@ function resetState() {
   answerButtonsElement.style.display = "flex"; // Reset visibility for the next question
 }
 
+// Handle answer selection
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  const isCorrect = selectedButton.dataset.correct;
+  if (isCorrect) {
+    score++;
+  }
+  if (currentQuestionIndex < questions.length - 1) {
+    currentQuestionIndex++;
+    showQuestion();
+  } else {
+    endQuiz();
+  }
+}
 
-// Add a new question
-addForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const newQuestion = {
-      question: document.getElementById("question").value,
-      options: [
-          document.getElementById("option1").value,
-          document.getElementById("option2").value,
-          document.getElementById("option3").value,
-          document.getElementById("option4").value
-      ],
-      correct: document.getElementById("correct").value
-  };
-  questions.push(newQuestion);
-  alert("Question added successfully!");
-  addForm.reset();
-});
+
+
 
 // Delete all questions
 deleteBtn.addEventListener("click", () => {
