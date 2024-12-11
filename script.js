@@ -68,14 +68,7 @@ function goBackToMainPageFromShowQuestions() {
   backToMainPageFromShowQuestionsButton.style.display = "none"; // Hide the Back button
 }
 
-let currentQuestionIndex = 0;
-let userScore = 0;
-let userAnswers = [];
 
-// Load a question
-function loadQuestion() {
-  quizContainer.innerHTML = "";
-  const questionObj = questions[currentQuestionIndex];
 
   // Question
   const questionElem = document.createElement("h3");
