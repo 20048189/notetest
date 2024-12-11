@@ -174,7 +174,10 @@ function endQuiz() {
   backToMainPageButton.style.display = "inline-block"; // Show the Back to Main Page button
 }
 
-
+// Go back to the main page after the quiz
+function goBackToMainPage() {
+  quizSection.style.display = "none";
+  mainPage.style.display = "block";
 
 // Delete all questions
 deleteBtn.addEventListener("click", () => {
