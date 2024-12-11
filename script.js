@@ -12,7 +12,16 @@ const answerInputs = [
   document.getElementById("answer3"),
   document.getElementById("answer4"),
 ];
-
+const correctAnswerSelect = document.getElementById("correct-answer");
+const questionList = document.getElementById("question-list");
+const showQuestionsButton = document.getElementById("show-questions-btn");
+const startQuizButton = document.getElementById("start-quiz-btn");
+const quizSection = document.getElementById("quiz-section");
+const mainPage = document.getElementById("main-page");
+const backToMainPageButton = document.getElementById("back-to-main-page-btn");
+const backToMainPageFromShowQuestionsButton = document.getElementById(
+  "back-to-main-page-from-show-questions-btn"
+);
 // Sample question data
 let questions = [
   {
