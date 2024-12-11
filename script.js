@@ -192,30 +192,16 @@ nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
   showQuestion();
 });
+questionForm.addEventListener("submit", addOrUpdateQuestion);
+startQuizButton.addEventListener("click", startQuiz);
+showQuestionsButton.addEventListener("click", showAllQuestions);
+backToMainPageFromShowQuestionsButton.addEventListener(
+  "click",
+  goBackToMainPageFromShowQuestions
+);
+backToMainPageButton.addEventListener("click", goBackToMainPage);
 
-// Show results
-function showResults() {
-  quizContainer.innerHTML = "<h2>Quiz Results</h2>";
-  questions.forEach((q, index) => {
-      const resultElem = document.createElement("div");
-      resultElem.innerHTML = `
-          <strong>Q${index + 1}:</strong> ${q.question}<br>
-          <em>Your Answer:</em> ${userAnswers[index] || "Not Answered"}<br>
-          <em>Correct Answer:</em> ${q.correct}<br>
-          <hr>
-      `;
-      quizContainer.appendChild(resultElem);
-  });
 
-  const scoreElem = document.createElement("h3");
-  scoreElem.textContent = `Your Score: ${userScore} / ${questions.length}`;
-  quizContainer.appendChild(scoreElem);
-
-  const restartBtn = document.createElement("button");
-  restartBtn.textContent = "Restart Quiz";
-  restartBtn.addEventListener("click", restartQuiz);
-  quizContainer.appendChild(restartBtn);
-}
 
 // Restart quiz
 function restartQuiz() {
