@@ -61,7 +61,12 @@ function showAllQuestions() {
   showQuestionsButton.style.display = "none"; // Hide the Show All Questions button
   backToMainPageFromShowQuestionsButton.style.display = "inline-block"; // Show the Back button
 }
-
+// Go back to the main page from show all questions view
+function goBackToMainPageFromShowQuestions() {
+  questionList.style.display = "none"; // Hide the question list
+  showQuestionsButton.style.display = "inline-block"; // Show the Show All Questions button
+  backToMainPageFromShowQuestionsButton.style.display = "none"; // Hide the Back button
+}
 
 let currentQuestionIndex = 0;
 let userScore = 0;
