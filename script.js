@@ -202,14 +202,7 @@ backToMainPageFromShowQuestionsButton.addEventListener(
 backToMainPageButton.addEventListener("click", goBackToMainPage);
 
 
+// Initial Setup
+loadQuestions();
 
-// Restart quiz
-function restartQuiz() {
-  currentQuestionIndex = 0;
-  userScore = 0;
-  userAnswers = [];
-  loadQuestion();
-}
 
-// Load the first question
-loadQuestion();
