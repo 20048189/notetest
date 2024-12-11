@@ -187,25 +187,10 @@ function goBackToMainPage() {
   backToMainPageButton.style.display = "none";
 }
 
-// Handle next button
-nextBtn.addEventListener("click", () => {
-  const selectedOption = document.querySelector('input[name="option"]:checked');
-  if (selectedOption) {
-      userAnswers.push(selectedOption.value);
-
-      if (selectedOption.value === questions[currentQuestionIndex].correct) {
-          userScore++;
-      }
-
-      currentQuestionIndex++;
-      if (currentQuestionIndex < questions.length) {
-          loadQuestion();
-      } else {
-          showResults();
-      }
-  } else {
-      alert("Please select an option.");
-  }
+// Event Listeners
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++;
+  showQuestion();
 });
 
 // Show results
